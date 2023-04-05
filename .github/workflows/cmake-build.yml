@@ -12,10 +12,18 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - uses: GuillaumeFalourd/setup-windows10-sdk-action@v1.11
+      with:
+        sdk-version: 20348
+    - name: install-cmake
+      uses: Symbitic/install-cmake@v0.1.0
+      with:
+        cmake: 3.17.2
+        ninja: 1.9.0
+        platform: win
     - name: Build new SDK
       shell: bash
       run: |
-        cmake -DCMAKE_SYSTEM_VERSION=10.0.18362.0
+        cmake -DCMAKE_SYSTEM_VERSION=10.0.20348.0
         cmake --build .
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v3.1.2
