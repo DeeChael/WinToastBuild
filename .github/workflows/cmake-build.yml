@@ -11,6 +11,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - name: generate-make-file
+      run: ccmake ./
     - name: make
       run: make
     - name: make check
