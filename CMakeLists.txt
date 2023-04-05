@@ -1,0 +1,19 @@
+cmake_minimum_required(VERSION 2.8.9)
+project (WinToast)
+
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
+set(CMAKE_AUTOUIC ON)
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+
+include_directories(${PROJECT_SOURCE_DIR}/src/ )
+file(GLOB SRC_FILES ${PROJECT_SOURCE_DIR}/src/*.cpp)
+
+add_library(WinToast ${SRC_FILES} )
+
+target_link_libraries(WinToast psapi)
+
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
+set(EXECUTABLE_OUTPUT_PATH  ${CMAKE_SOURCE_DIR}/bin)
