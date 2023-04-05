@@ -11,6 +11,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - name: Windows SDK Install
+  # You may pin to the exact commit or the version.
+  # uses: ChristopheLav/windows-sdk-install@14ad5f172e8fd00da0e21f3acd08d2b902d91524
+      uses: ChristopheLav/windows-sdk-install@v1.0.1
+      with:
+        version-sdk: 22621
+        features: 'OptionId.WindowsPerformanceToolkit,OptionId.WindowsDesktopDebuggers,OptionId.AvrfExternal,OptionId.NetFxSoftwareDevelopmentKit,OptionId.WindowsSoftwareLogoToolkit,OptionId.IpOverUsb,OptionId.MSIInstallTools,OptionId.SigningTools,OptionId.UWPManaged,OptionId.UWPCPP,OptionId.UWPLocalized,OptionId.DesktopCPPx86,OptionId.DesktopCPPx64,OptionId.DesktopCPParm,OptionId.DesktopCPParm64'
     - name: cmake-configure
       uses: snickerbockers/cmake-configure@prerel1
     - name: generate-make-file
